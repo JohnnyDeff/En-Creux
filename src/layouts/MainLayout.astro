@@ -1,0 +1,51 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { 
+  title, 
+  description = "EN CREUX - Média culturel indépendant" 
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title} | EN CREUX</title>
+  </head>
+  <body>
+    <div class="layout-container">
+      
+      <header class="site-header">
+        <div class="logo">
+          <a href="/">
+            <h1>EN CREUX<span class="logo-dot"></span></h1>
+            <span class="logo-subtitle">Média culturel indépendant</span>
+          </a>
+        </div>
+        <nav class="site-nav">
+          <a href="/">Manifeste</a>
+          <a href="/episodes">Épisodes</a>
+          <a href="/coulisses">Les Coulisses</a>
+        </nav>
+      </header>
+
+      <main>
+        <slot />
+      </main>
+
+      <footer class="site-footer">
+        <p>Perspectives. Culture. Contexte.</p>
+        <p>&copy; {new Date().getFullYear()} EN CREUX</p>
+      </footer>
+
+    </div>
+  </body>
+</html>
