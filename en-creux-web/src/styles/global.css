@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap');
+
+:root {
+  /* Charte graphique EN CREUX */
+  --color-bg: #F5F5F3;        /* Off-White institutionnel */
+  --color-text: #0A0A0A;      /* Black brut */
+  --color-muted: #555555;     /* Graphite text */
+  --color-accent: #D64833;    /* Vermilion Red (ajusté sur le rouge de la charte) */
+  --color-accent-alt: #C53D28;
+  
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  --space-sm: 1rem;
+  --space-md: 2.5rem;
+  --space-lg: 6rem;
+  --space-xl: 10rem;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+a {
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+.layout-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--space-md);
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* En-tête épuré et graphique */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid rgba(10, 10, 10, 0.1);
+  margin-bottom: var(--space-lg);
+}
+
+.logo a {
+  display: block;
+}
+
+.logo h1 {
+  font-size: 2.2rem;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+/* Le petit carré rouge signature de fin de logo */
+.logo-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #D64833;
+  margin-left: 4px;
+  vertical-align: baseline;
+}
+
+.logo-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-muted);
+  margin-top: 6px;
+  display: block;
+}
+
+.site-nav {
+  display: flex;
+  gap: var(--space-md);
+  font-family: var(--font-heading);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.85rem;
+  padding-top: 5px;
+}
+
+.site-nav a {
+  position: relative;
+}
+
+.site-nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--color-accent);
+  transition: width 0.3s ease;
+}
+
+.site-nav a:hover::after {
+  width: 100%;
+}
+
+.site-footer {
+  margin-top: auto;
+  padding-top: var(--space-lg);
+  padding-bottom: var(--space-sm);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-muted);
+  border-top: 1px solid rgba(10, 10, 10, 0.1);
+}
