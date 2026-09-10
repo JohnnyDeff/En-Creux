@@ -1,0 +1,24 @@
+---
+import CategoryBadge from './CategoryBadge.astro';
+interface Props {
+  title: string;
+  episodeNumber: string;
+  category: string;
+  description: string;
+  href?: string;
+}
+const { title, episodeNumber, category, description, href = '#' } = Astro.props;
+---
+<article class="video-card">
+  <a href={href} class="video-card-media" aria-label={`Voir ${title}`}>
+    <span class="play-mark" aria-hidden="true">+</span>
+  </a>
+  <div class="video-card-body">
+    <div class="video-card-meta">
+      <span>{episodeNumber}</span>
+      <CategoryBadge category={category} />
+    </div>
+    <h2><a href={href}>{title}</a></h2>
+    <p>{description}</p>
+  </div>
+</article>

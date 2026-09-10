@@ -1,0 +1,24 @@
+---
+import { getCollection, render } from 'astro:content';
+import MainLayout from '../../layouts/MainLayout.astro';
+import CategoryBadge from '../../components/CategoryBadge.astro';
+
+export async function getStaticPaths() {
+  const notes = await getCollection('notes');
+  return notes.map((note) => ({ params: { slug: note.id }, props: { note } }));
+}
+
+const { note } = Astro.props;
+const { Content } = await render(note);
+---
+<MainLayout title={note.data.title} description={note.data.description}>
+  <article class="article-page">
+    <header class="article-header">
+      <div class="article-meta"><span>{note.data.episodeNumber}</span><CategoryBadge category={note.data.category} /></div>
+      <h1>{note.data.title}</h1>
+      <p class="article-description">{note.data.description}</p>
+      <time datetime={note.data.publishDate.toISOString()}>{note.data.publishDate.toLocaleDateString('fr-FR')}</time>
+    </header>
+    <div class="article-content"><Content /></div>
+  </article>
+</MainLayout>

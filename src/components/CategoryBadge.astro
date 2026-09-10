@@ -1,0 +1,6 @@
+---
+interface Props { category: string }
+const { category } = Astro.props;
+const slug = category.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '-');
+---
+<span class={`category-badge category-${slug}`}>{category}</span>
