@@ -1,6 +1,6 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
-import VideoCard from '../components/VideoCard.astro';
+
 ---
 <MainLayout title="Accueil">
   <section class="hero">
@@ -9,19 +9,7 @@ import VideoCard from '../components/VideoCard.astro';
     <p class="hero-intro">Cinéma, musique, manga, culture. Nous regardons ce qui reste en arrière-plan : les mécanismes, les signes, les contextes et les détails qui changent notre manière de voir une œuvre.</p>
   </section>
 
-  <section class="section-block" aria-labelledby="notes-title">
-    <div class="section-heading">
-      <p class="eyebrow">01 / Notes</p>
-      <h2 id="notes-title">Les mécaniques invisibles.</h2>
-    </div>
-    <VideoCard
-      title="Les mécaniques invisibles"
-      episodeNumber="NOTE 001"
-      category="Cinéma"
-      description="Une première note pour ouvrir la méthode : regarder l'œuvre, puis regarder ce qu'elle cache."
-      href="/notes"
-    />
-  </section>
+
 
   <section class="manifesto-grid">
     <p class="eyebrow">02 / Doctrine</p>

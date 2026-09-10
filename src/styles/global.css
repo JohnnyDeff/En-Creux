@@ -26,7 +26,7 @@ p { margin: 0 0 1rem; }
 
 .site-container { width: min(100% - 2 * var(--space), var(--max)); margin: auto; }
 .site-header { display: flex; align-items: center; justify-content: space-between; padding: 1.35rem 0; border-bottom: 1px solid #d7d7d3; }
-.brand { display: inline-flex; align-items: center; gap: .35rem; font: 700 1.05rem/1 'Space Grotesk', sans-serif; letter-spacing: .08em; }
+.brand { display: inline-flex; align-items: center; gap: .35rem; font: 700 1.55rem/1 'Space Grotesk', sans-serif; letter-spacing: .08em; }
 .brand-dot { width: .45rem; height: .45rem; background: var(--accent); display: inline-block; }
 .site-nav { display: flex; gap: 2rem; font-size: .9rem; }
 .site-nav a { transition: color .2s ease; }
@@ -34,7 +34,7 @@ p { margin: 0 0 1rem; }
 
 .hero { padding: var(--serif-gap) 0 7rem; max-width: 980px; }
 .eyebrow { margin-bottom: 1.25rem; color: var(--accent); font: 500 .72rem/1 Inter, sans-serif; letter-spacing: .14em; text-transform: uppercase; }
-.hero h1 { font-size: clamp(3.4rem, 8vw, 7.5rem); max-width: 980px; }
+.hero h1 { font-size: clamp(2.4rem, 5vw, 4.8rem); max-width: 850px; }
 .hero h1 em, .page-intro h1 em { color: var(--accent); font-style: normal; }
 .hero-intro { max-width: 650px; margin-top: 2.5rem; color: #414141; font-size: clamp(1rem, 1.5vw, 1.18rem); }
 
