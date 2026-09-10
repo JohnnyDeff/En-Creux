@@ -19,6 +19,9 @@ const { Content } = await render(note);
       <h1>{note.data.title}</h1>
       <p class="article-description">{note.data.description}</p>
       <time datetime={note.data.publishDate.toISOString()}>{note.data.publishDate.toLocaleDateString('fr-FR')}</time>
+      <button class="share-button" type="button" id="copy-link">
+        Copier le lien
+      </button>
     </header>
     <img
   src={bayeuxImage.src}

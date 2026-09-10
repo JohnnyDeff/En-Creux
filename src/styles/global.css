@@ -32,7 +32,7 @@ p { margin: 0 0 1rem; }
 .site-nav a { transition: color .2s ease; }
 .site-footer { display: flex; justify-content: space-between; gap: 2rem; padding: 3rem 0 1.5rem; margin-top: var(--serif-gap); border-top: 1px solid #d7d7d3; color: var(--muted); font-size: .78rem; }
 
-.hero { padding: var(--serif-gap) 0 7rem; max-width: 980px; }
+.hero { padding: 5rem 0 4rem; max-width: 980px; }
 .eyebrow { margin-bottom: 1.25rem; color: var(--accent); font: 500 .72rem/1 Inter, sans-serif; letter-spacing: .14em; text-transform: uppercase; }
 .hero h1 { font-size: clamp(2.4rem, 5vw, 4.8rem); max-width: 850px; }
 .hero h1 em, .page-intro h1 em { color: var(--accent); font-style: normal; }
