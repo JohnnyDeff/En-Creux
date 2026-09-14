@@ -1,9 +1,11 @@
 import { defineCollection } from 'astro:content';
-import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
+import { markdownDirectoryLoader } from './loaders/markdown-directory';
 
 const notes = defineCollection({
-  loader: glob({ pattern: '**/[^_]*.md', base: './src/content/notes' }),
+  loader: markdownDirectoryLoader({
+    base: './src/content/notes',
+  }),
   schema: z.object({
     title: z.string(),
     episodeNumber: z.string(),
@@ -15,7 +17,9 @@ const notes = defineCollection({
 });
 
 const dossiers = defineCollection({
-  loader: glob({ pattern: '**/[^_]*.md', base: './src/content/dossiers' }),
+  loader: markdownDirectoryLoader({
+    base: './src/content/dossiers',
+  }),
   schema: z.object({
     title: z.string(),
     category: z.enum(['Cinéma', 'Musique', 'Manga', 'Idées', 'Société', 'Culture']),

@@ -31,3 +31,16 @@ const { Content } = await render(note);
     <div class="article-content"><Content /></div>
   </article>
 </MainLayout>
+
+<script>
+  const copyLinkButton = document.querySelector<HTMLButtonElement>('#copy-link');
+
+  copyLinkButton?.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      copyLinkButton.textContent = 'Lien copié';
+    } catch {
+      copyLinkButton.textContent = 'Copie impossible';
+    }
+  });
+</script>

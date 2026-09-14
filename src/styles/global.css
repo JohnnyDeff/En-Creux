@@ -80,6 +80,9 @@ p { margin: 0 0 1rem; }
 .article-header h1 { font-size: clamp(3rem, 7vw, 6rem); margin: 1.5rem 0; }
 .article-description { max-width: 700px; color: var(--muted); font-size: 1.1rem; }
 .article-header time { color: var(--muted); font-size: .75rem; }
+.share-button { display: block; margin-top: 1.5rem; padding: .55rem .8rem; border: 1px solid var(--text); background: transparent; color: var(--text); font: 500 .75rem/1 Inter, sans-serif; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; }
+.share-button:hover { border-color: var(--accent); color: var(--accent); }
+.article-image { display: block; width: 100%; height: auto; margin-top: 3rem; }
 .article-content { max-width: 720px; padding-top: 4rem; font-size: 1.08rem; }
 .article-content h2 { margin: 3rem 0 1rem; font-size: 2rem; }
 .article-content blockquote { margin: 3rem 0; padding-left: 1.5rem; border-left: 3px solid var(--accent); font: 500 1.5rem/1.25 'Space Grotesk', sans-serif; }
