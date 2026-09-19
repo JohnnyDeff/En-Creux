@@ -22,10 +22,18 @@ const dossiers = defineCollection({
   }),
   schema: z.object({
     title: z.string(),
-    category: z.enum(['Cinéma', 'Musique', 'Manga', 'Idées', 'Société', 'Culture']),
+    subtitle: z.string(),
     publishDate: z.coerce.date(),
     description: z.string(),
+    cardDescription: z.string(),
   }),
 });
 
-export const collections = { notes, dossiers };
+const verifications = defineCollection({
+  loader: markdownDirectoryLoader({
+    base: './src/content/verifications',
+  }),
+  schema: z.object({ title: z.string() }),
+});
+
+export const collections = { notes, dossiers, verifications };

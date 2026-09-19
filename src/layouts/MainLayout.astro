@@ -6,9 +6,10 @@ import Footer from '../components/Footer.astro';
 interface Props {
   title: string;
   description?: string;
+  fullTitle?: string;
 }
 
-const { title, description = 'Ce que les œuvres racontent sans le dire.' } = Astro.props;
+const { title, fullTitle, description = 'Ce que les œuvres racontent sans le dire.' } = Astro.props;
 ---
 <!doctype html>
 <html lang="fr">
@@ -17,7 +18,7 @@ const { title, description = 'Ce que les œuvres racontent sans le dire.' } = As
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <link rel="canonical" href={Astro.url} />
-    <title>{title} — EN CREUX</title>
+    <title>{fullTitle ?? `${title} — EN CREUX`}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />

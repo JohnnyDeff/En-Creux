@@ -76,6 +76,15 @@ p { margin: 0 0 1rem; }
 .prose-page h1 { font-size: clamp(3.2rem, 7vw, 6rem); margin-bottom: 3rem; }
 .prose-page .lead { font: 500 clamp(1.5rem, 3vw, 2.3rem)/1.15 'Space Grotesk', sans-serif; max-width: 800px; margin-bottom: 3rem; }
 .prose-page p:not(.eyebrow) { max-width: 700px; font-size: 1.05rem; margin-bottom: 1.5rem; }
+.method-page { max-width: 900px; }
+.method-header { padding-bottom: 4rem; border-bottom: 1px solid #d7d7d3; }
+.method-header h1 { margin-bottom: 1.25rem; }
+.method-subtitle { margin: 0; font: 500 clamp(1.45rem, 3vw, 2.25rem)/1.15 'Space Grotesk', sans-serif; letter-spacing: -.03em; }
+.method-content { max-width: 720px; padding-top: 4rem; }
+.method-content h2 { margin: 4.5rem 0 1.25rem; font-size: clamp(1.8rem, 3vw, 2.5rem); line-height: 1.08; }
+.method-content p { font-size: 1.08rem; margin-bottom: 1.5rem; }
+.method-content hr { margin: 4.5rem 0 2rem; border: 0; border-top: 1px solid #d7d7d3; }
+.method-content p:last-child { margin-top: 2.5rem; color: var(--accent); font: 500 1rem/1.5 'Space Grotesk', sans-serif; }
 .article-header { padding-bottom: 4rem; border-bottom: 1px solid #d7d7d3; }
 .article-header h1 { font-size: clamp(3rem, 7vw, 6rem); margin: 1.5rem 0; }
 .article-description { max-width: 700px; color: var(--muted); font-size: 1.1rem; }
@@ -87,13 +96,47 @@ p { margin: 0 0 1rem; }
 .article-content h2 { margin: 3rem 0 1rem; font-size: 2rem; }
 .article-content blockquote { margin: 3rem 0; padding-left: 1.5rem; border-left: 3px solid var(--accent); font: 500 1.5rem/1.25 'Space Grotesk', sans-serif; }
 
+.dossier-row h2 { margin-top: 0; }
+.dossier-page { max-width: 980px; }
+.dossier-lead { max-width: 720px; margin: 2rem 0; font: 500 clamp(1.35rem, 2.5vw, 2rem)/1.25 'Space Grotesk', sans-serif; letter-spacing: -.025em; }
+.dossier-content { line-height: 1.85; }
+.dossier-content p { margin-bottom: 1.25rem; }
+.dossier-content h2 { line-height: 1.15; margin-top: 4.5rem; }
+.dossier-content > p:last-child { margin-bottom: 0; padding-top: 1.25rem; font-size: 1.35rem; }
+.dossier-content > p:last-child strong { color: var(--accent); font-family: 'Space Grotesk', sans-serif; }
+.dossier-verification { margin-top: clamp(7rem, 15vw, 12rem); padding-top: 3rem; border-top: 1px solid #d7d7d3; }
+.dossier-verification h2 { max-width: 720px; margin: 0 0 2rem; font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.05; }
+.verification-lead { max-width: 700px; margin-bottom: 3rem; font-size: 1.12rem; }
+.verification-content { max-width: 720px; border-top: 1px solid #d7d7d3; }
+.verification-content h3 { margin: 3rem 0 1rem; font-size: clamp(1.4rem, 3vw, 2rem); line-height: 1.15; }
+.verification-content h4 { margin: 2.5rem 0 1rem; font: 700 1.25rem/1.2 'Space Grotesk', sans-serif; letter-spacing: -.02em; }
+.verification-content p, .verification-content li { font-size: .98rem; line-height: 1.7; }
+.verification-content ul { margin: 0 0 1.5rem; padding-left: 1.3rem; }
+.verification-content li { margin-bottom: .5rem; }
+.verification-content table { width: 100%; margin: 1.5rem 0 2.5rem; border-collapse: collapse; font-size: .86rem; line-height: 1.45; }
+.verification-content th, .verification-content td { padding: .75rem; border: 1px solid #d7d7d3; text-align: left; vertical-align: top; }
+.verification-content th { font-family: 'Space Grotesk', sans-serif; }
+.verification-content a { color: var(--accent); text-decoration: underline; text-underline-offset: .2em; overflow-wrap: anywhere; }
+.verification-content blockquote { margin: 3rem 0 0; padding-left: 1.5rem; border-left: 3px solid var(--accent); }
+.verification-content blockquote p { font-size: 1.08rem; }
+
 @media (max-width: 760px) {
   .site-header { align-items: flex-start; }
   .site-nav { gap: 1rem; }
+  .site-nav { flex-wrap: wrap; justify-content: flex-end; }
   .hero { padding-top: 5rem; padding-bottom: 4rem; }
   .section-heading, .manifesto-grid, .video-card { grid-template-columns: 1fr; }
   .video-card-media { min-height: 260px; }
   .note-row { grid-template-columns: 1fr; gap: .6rem; }
   .note-row time { text-align: left; }
   .site-footer { flex-direction: column; gap: .5rem; }
+  .article-page { padding: 4rem 0; }
+  .article-header { padding-bottom: 3rem; }
+  .article-content { padding-top: 3rem; }
+  .dossier-content h2 { margin-top: 3.5rem; }
+  .method-header { padding-bottom: 3rem; }
+  .method-content { padding-top: 3rem; }
+  .method-content h2 { margin-top: 3.5rem; }
+  .verification-content table { display: block; overflow-x: auto; }
+  .verification-content th, .verification-content td { min-width: 10rem; }
 }
