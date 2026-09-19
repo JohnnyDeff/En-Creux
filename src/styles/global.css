@@ -31,6 +31,10 @@ p { margin: 0 0 1rem; }
 .site-nav { display: flex; gap: 2rem; font-size: .9rem; }
 .site-nav a { transition: color .2s ease; }
 .site-footer { display: flex; justify-content: space-between; gap: 2rem; padding: 3rem 0 1.5rem; margin-top: var(--serif-gap); border-top: 1px solid #d7d7d3; color: var(--muted); font-size: .78rem; }
+.site-footer p { margin-bottom: .35rem; }
+.footer-nav { display: flex; align-items: flex-start; gap: 1.5rem; }
+.footer-nav a { border-bottom: 1px solid transparent; }
+.footer-nav a:hover { border-color: currentColor; }
 
 .hero { padding: 5rem 0 4rem; max-width: 980px; }
 .eyebrow { margin-bottom: 1.25rem; color: var(--accent); font: 500 .72rem/1 Inter, sans-serif; letter-spacing: .14em; text-transform: uppercase; }
@@ -76,6 +80,10 @@ p { margin: 0 0 1rem; }
 .prose-page h1 { font-size: clamp(3.2rem, 7vw, 6rem); margin-bottom: 3rem; }
 .prose-page .lead { font: 500 clamp(1.5rem, 3vw, 2.3rem)/1.15 'Space Grotesk', sans-serif; max-width: 800px; margin-bottom: 3rem; }
 .prose-page p:not(.eyebrow) { max-width: 700px; font-size: 1.05rem; margin-bottom: 1.5rem; }
+.legal-page h2 { margin: 4rem 0 1.25rem; font-size: clamp(1.8rem, 3vw, 2.5rem); line-height: 1.1; }
+.legal-page h1 { font-size: clamp(2.4rem, 10vw, 6rem); overflow-wrap: anywhere; }
+.legal-page a { color: var(--accent); text-decoration: underline; text-underline-offset: .2em; }
+.legal-page code { font-size: .9em; overflow-wrap: anywhere; }
 .method-page { max-width: 900px; }
 .method-header { padding-bottom: 4rem; border-bottom: 1px solid #d7d7d3; }
 .method-header h1 { margin-bottom: 1.25rem; }
@@ -129,7 +137,8 @@ p { margin: 0 0 1rem; }
   .video-card-media { min-height: 260px; }
   .note-row { grid-template-columns: 1fr; gap: .6rem; }
   .note-row time { text-align: left; }
-  .site-footer { flex-direction: column; gap: .5rem; }
+  .site-footer { flex-direction: column; gap: 1.5rem; }
+  .footer-nav { flex-wrap: wrap; gap: .75rem 1.25rem; }
   .article-page { padding: 4rem 0; }
   .article-header { padding-bottom: 3rem; }
   .article-content { padding-top: 3rem; }
