@@ -5,3 +5,10 @@ dist/
 .env
 .env.*
 !.env.example
+
+# Sauvegardes et preuves locales : jamais dans le dépôt public.
+/.backups/
+/audit-*/
+/sauvegarde-*/
+/securisation-*/
+/EN_CREUX_AUDIT_ET_PLAN_DE_SAUVEGARDE.md

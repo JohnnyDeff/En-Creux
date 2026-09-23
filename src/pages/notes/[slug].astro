@@ -11,6 +11,10 @@ export async function getStaticPaths() {
 
 const { note } = Astro.props;
 const { Content } = await render(note);
+const verification = (await getCollection('verifications')).find((entry) => entry.id === note.id);
+const Verification = verification ? (await render(verification)).Content : null;
+// Illustration propre à Bayeux : ajouter ici une correspondance explicite pour toute autre note illustrée.
+const articleImage = note.id === 'tapisserie-de-bayeux' ? bayeuxImage : null;
 ---
 <MainLayout title={note.data.title} description={note.data.description}>
   <article class="article-page">
@@ -23,12 +27,28 @@ const { Content } = await render(note);
         Copier le lien
       </button>
     </header>
-    <img
-  src={bayeuxImage.src}
-  alt="La tapisserie de Bayeux"
-  class="article-image"
-/>
-    <div class="article-content"><Content /></div>
+    {articleImage && (
+      <img
+        src={articleImage.src}
+        alt="La tapisserie de Bayeux"
+        class="article-image"
+      />
+    )}
+    <div class="article-content">
+      <Content />
+      {note.id === 'tapisserie-de-bayeux' && (
+        <aside class="article-documentation">
+          <a class="text-link" href="/notes/tapisserie-de-bayeux/appareil-documentaire/">Consulter l’appareil documentaire</a>
+        </aside>
+      )}
+    </div>
+    {Verification && (
+      <aside class="dossier-verification note-verification" aria-labelledby="verification-title">
+        <p class="eyebrow">Méthode & sources</p>
+        <h2 id="verification-title">{verification.data.title}</h2>
+        <div class="verification-content"><Verification /></div>
+      </aside>
+    )}
   </article>
 </MainLayout>
 

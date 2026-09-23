@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="720" viewBox="0 0 360 720" role="img" aria-labelledby="title description">
+  <title id="title">Le cancel dans Street Fighter II</title>
+  <desc id="description">Lecture de haut en bas. À gauche, l’attaque normale va jusqu’au repos puis à l’action suivante. À droite, à partir de l’impact, sa fin est barrée et remplacée par le Hadoken.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#0A0A0A"/></marker>
+    <style>
+      text { fill: #0A0A0A; font: 18px Inter, Arial, sans-serif; }
+      .title { font: 700 26px 'Space Grotesk', Arial, sans-serif; }
+      .label { font: 700 18px 'Space Grotesk', Arial, sans-serif; }
+      .small { font-size: 17px; }
+      .line { fill: none; stroke: #0A0A0A; stroke-width: 2; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="360" height="720" fill="#F5F5F3"/>
+  <text x="12" y="34" class="title">Le cancel dans<tspan x="12" dy="31">Street Fighter II</tspan></text>
+  <text x="12" y="98">Le coup spécial ne s’ajoute pas<tspan x="12" dy="25">après le coup normal :</tspan><tspan x="12" dy="25">il en remplace la fin.</tspan></text>
+  <path d="M180 181V690" stroke="#d7d7d3"/>
+  <g text-anchor="middle">
+    <text x="90" y="197" class="label">A — Sans cancel</text>
+    <text x="270" y="197" class="label">B — Avec cancel</text>
+    <text x="90" y="240">Attaque<tspan x="90" dy="24">normale</tspan></text>
+    <text x="270" y="240">Attaque<tspan x="270" dy="24">normale</tspan></text>
+    <path d="M90 278V312M270 278V312" class="line"/>
+    <circle cx="90" cy="327" r="6" fill="#D64833"/>
+    <circle cx="270" cy="327" r="6" fill="#D64833"/>
+    <text x="90" y="359">Impact</text>
+    <text x="270" y="359">Impact</text>
+    <path d="M90 372V404" class="line"/>
+    <path d="M270 372V410" stroke="#777" stroke-width="2" stroke-dasharray="5 4"/>
+    <text x="90" y="432">Fin du<tspan x="90" dy="24">mouvement</tspan></text>
+    <text x="270" y="432">Fin du<tspan x="270" dy="24">mouvement</tspan></text>
+    <path d="M211 410L329 469M211 469L329 410" stroke="#D64833" stroke-width="3"/>
+    <path d="M90 473V505M270 478V536" class="line"/>
+    <text x="90" y="533">Retour<tspan x="90" dy="24">au repos</tspan></text>
+    <rect x="195" y="487" width="150" height="26" fill="#F5F5F3"/>
+    <text x="270" y="506" class="small">remplacée par</text>
+    <path d="M90 575V612" class="line"/>
+    <text x="90" y="642">Action<tspan x="90" dy="24">suivante</tspan></text>
+    <rect x="197" y="550" width="146" height="123" rx="4" fill="none" stroke="#D64833" stroke-width="2"/>
+    <text x="270" y="580" class="label">Hadoken</text>
+    <text x="270" y="610" class="small">Attaque spéciale<tspan x="270" dy="24">enchaînée</tspan></text>
+  </g>
+</svg>

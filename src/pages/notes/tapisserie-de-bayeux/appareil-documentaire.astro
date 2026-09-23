@@ -1,0 +1,82 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+
+const title = 'Appareil documentaire — La tapisserie de Bayeux';
+const description = 'Sources, niveaux de certitude et historique public de la Note 001';
+---
+
+<MainLayout title={title} description={description}>
+  <article class="article-page documentary-page">
+    <header class="documentary-header">
+      <p class="eyebrow">Note 001</p>
+      <h1>{title}</h1>
+      <p class="documentary-subtitle">{description}</p>
+    </header>
+
+    <div class="documentary-content">
+      <h2>Périmètre</h2>
+      <p>Cet appareil accompagne la Note 001 d’EN CREUX. Il rassemble les principales sources utilisées, distingue les faits établis des hypothèses et signale les limites qui modifient réellement la lecture du texte. Il ne constitue pas une bibliographie exhaustive.</p>
+      <p>Il porte sur cinq ensembles : la nature matérielle de la broderie, son origine probable, son déplacement à Paris sous Napoléon, son histoire pendant l’Occupation et le prêt franco-britannique de 2026.</p>
+
+      <h2>Repères établis</h2>
+      <p><strong>Nature et dimensions.</strong> L’œuvre est une broderie de fils de laine sur neuf panneaux de lin assemblés, et non une tapisserie tissée. Sa longueur précisément relevée est de 68,38 mètres ; l’arrondi à 70 mètres reste celui de la communication muséale.</p>
+      <p><strong>Origine et commande.</strong> Une commande par Odon de Bayeux et une confection en Angleterre constituent aujourd’hui les hypothèses les plus solides, mais non des certitudes documentaires. L’attribution traditionnelle à la reine Mathilde n’est pas retenue comme un fait.</p>
+      <p><strong>Première trace écrite.</strong> L’inventaire du trésor de la cathédrale de Bayeux de 1476 atteste la présence de l’œuvre et son exposition dans la nef lors de la fête des Reliques.</p>
+      <p><strong>Paris sous Napoléon.</strong> Le transfert demandé le 15 novembre 1803 et l’exposition au Musée Napoléon sont documentés. Le rapprochement avec le projet d’invasion de l’Angleterre relève d’un contexte politique solidement établi ; les formulations attribuées directement à Napoléon doivent toutefois rester sourcées avec précision.</p>
+      <p><strong>Occupation.</strong> Les mises à l’abri successives, le séjour à Sourches, la réquisition et le transfert au Louvre sont documentés. L’intérêt de l’Ahnenerbe pour l’œuvre et sa lecture germanique sont également établis.</p>
+      <p><strong>Prêt contemporain.</strong> Le prêt au British Museum, l’exposition du 10 septembre 2026 au 11 juillet 2027 et les prêts croisés britanniques sont documentés par les institutions françaises et britanniques.</p>
+
+      <h2>Ordre de Himmler — niveau de certitude</h2>
+      <p>La formulation initiale de la Note, selon laquelle aucun document d’archive primaire n’aurait été rendu public, est désormais trop catégorique. Le <em>Financial Times</em> rapporte qu’un message de Heinrich Himmler, intercepté à Bletchley Park le 18 août 1944, demandait de mettre la tapisserie « en lieu sûr » et figure parmi des documents des National Archives britanniques rendus publics en 2017.</p>
+      <p>Cette information renforce fortement l’existence d’une instruction émanant de Himmler. En revanche, cet appareil ne dispose pas encore de la cote d’archive permettant de vérifier directement la pièce. La destination précise — souvent présentée comme Berlin — et les détails opérationnels du projet doivent donc rester attribués et prudents.</p>
+
+      <h2>Controverse du prêt</h2>
+      <p>Le constat d’état réalisé en 2020 par huit restauratrices spécialisées, puis publié par la DRAC Normandie, recense 24 204 taches, 16 445 plis, 9 646 manques dans la toile ou les broderies et 30 déchirures non stabilisées. Les premiers mètres de l’œuvre présentent une fragilisation plus importante.</p>
+      <p>Ces données ont nourri l’opposition au prêt, notamment portée par <em>La Tribune de l’Art</em> et par une pétition publique. Elles documentent la fragilité de l’œuvre, mais ne suffisent pas à démontrer que son transport devait nécessairement provoquer un dommage.</p>
+      <p>Une expertise complémentaire présentée en juin 2026 a conclu à la faisabilité du déplacement sous conditions strictes. Le transport a ensuite été effectué dans une caisse climatisée et antivibratoire. L’appareil documentaire conserve donc les deux dimensions du débat : une contestation patrimoniale fondée sur l’état de l’œuvre et une décision de transport soutenue par une nouvelle expertise technique.</p>
+
+      <h2>Sources principales</h2>
+      <h3>Sources institutionnelles</h3>
+      <ul>
+        <li><a href="https://www.bayeuxmuseum.com/en/the-bayeux-tapestry/discover-the-bayeux-tapestry/tapestry-or-embroidery/">Musée de la Tapisserie de Bayeux — « Tapisserie ou broderie ? »</a> : nature matérielle, dimensions, technique et hypothèses de commande.</li>
+        <li><a href="https://www.bayeuxmuseum.com/en/the-bayeux-tapestry/over-the-centuries/from-the-cathedral-to-the-louvre/">Musée de la Tapisserie de Bayeux — « De la cathédrale d’Odon au Louvre »</a> : inventaire de 1476, Révolution et exposition napoléonienne.</li>
+        <li><a href="https://www.bayeuxmuseum.com/en/the-bayeux-tapestry/over-the-centuries/during-the-second-world-war/">Musée de la Tapisserie de Bayeux — « Pendant la Seconde Guerre mondiale »</a> : déplacements, Sourches, Louvre et intérêt de l’Ahnenerbe.</li>
+        <li><a href="https://www.culture.gouv.fr/Regions/Drac-Normandie/Actualites/Tapisserie-de-Bayeux-constat-d-etat-et-perspectives-de-conservation">DRAC Normandie — « Constat d’état et perspectives de conservation »</a> : méthode du diagnostic et décompte des altérations.</li>
+        <li><a href="https://www.culture.gouv.fr/dossiers/tapisserie-de-bayeux-un-pret-historique">Ministère de la Culture — « Tapisserie de Bayeux : un prêt historique »</a> : cadre du prêt, conditions techniques et prêts croisés.</li>
+        <li><a href="https://www.culture.gouv.fr/presse/communiques-de-presse/la-tapisserie-de-bayeux-est-arrivee-cette-nuit-au-british-museum-londres">Ministère de la Culture — « La Tapisserie de Bayeux est arrivée au British Museum »</a> : transport et arrivée à Londres.</li>
+        <li><a href="https://www.britishmuseum.org/exhibitions/bayeux-tapestry">British Museum — « The Bayeux Tapestry »</a> : calendrier et présentation de l’exposition.</li>
+      </ul>
+
+      <h3>Controverse et contre-vérification</h3>
+      <ul>
+        <li><a href="https://www.latribunedelart.com/pourquoi-la-tapisserie-de-bayeux-ne-peut-et-ne-doit-pas-voyager">La Tribune de l’Art — « Pourquoi la tapisserie de Bayeux ne peut (et ne doit) pas voyager »</a> : argumentaire opposé au prêt.</li>
+        <li><a href="https://www.change.org/p/non-au-pr%C3%AAt-de-la-tapisserie-de-bayeux">Change.org — « Non au prêt de la tapisserie de Bayeux »</a> : pétition publique. Ne pas afficher de nombre de signatures sans date de consultation.</li>
+        <li><a href="https://www.lemonde.fr/culture/article/2026/06/03/la-tapisserie-de-bayeux-pourra-rejoindre-le-british-museum-au-terme-d-un-periple-minutieusement-etudie_6696644_3246.html">Le Monde — « La tapisserie de Bayeux pourra rejoindre le British Museum »</a> : expertise complémentaire et conditions de transport.</li>
+        <li><a href="https://www.ft.com/content/03ddf0b5-88af-422c-a17e-81c201a8222b">Financial Times — « The political power struggle behind the Bayeux Tapestry »</a> : message attribué à Himmler, interception par Bletchley Park et documents des National Archives.</li>
+      </ul>
+
+      <h3>Ouvrages de référence</h3>
+      <ul>
+        <li>Pierre Bouet et François Neveux, <em>La Tapisserie de Bayeux : Révélations et énigmes d’un chef-d’œuvre médiéval</em>, Éditions Ouest-France, 2013.</li>
+        <li>Sylvette Lemagnen (dir.), <em>La Tapisserie de Bayeux : Une œuvre d’art textile du Moyen Âge</em>, Presses universitaires de Caen, 2004.</li>
+        <li>David M. Wilson, <em>The Bayeux Tapestry</em>, Thames &amp; Hudson, 1985.</li>
+        <li>François Neveux, <em>L’aventure de la Tapisserie de Bayeux : Deux siècles de redécouverte</em>, Éditions Ouest-France, 1995.</li>
+      </ul>
+
+      <h2>Limites</h2>
+      <p>Cet appareil documente les affirmations centrales de la Note, sans prétendre résoudre les débats historiographiques sur le commanditaire, l’atelier de fabrication ou la lecture politique exacte de chaque scène.</p>
+      <p>La cote précise du message intercepté attribué à Himmler reste à retrouver dans les National Archives avant de présenter sa formulation complète et sa destination supposée comme directement vérifiées sur la pièce primaire.</p>
+      <p>La controverse sur le prêt est présentée comme une controverse : ni la pétition ni le constat d’état ne démontrent seuls l’inévitabilité d’un dommage ; l’expertise complémentaire établit une faisabilité sous conditions, non l’absence absolue de risque.</p>
+
+      <h2>Historique public</h2>
+      <ul>
+        <li>Publication initiale de la Note : 10 septembre 2026.</li>
+        <li>Mise à jour du 20 septembre 2026 : ajout du contrepoint sur la conservation, création de l’appareil documentaire et rectification de la formulation relative à l’ordre de Himmler.</li>
+      </ul>
+
+      <nav class="documentary-return" aria-label="Retour à la Note">
+        <a class="text-link" href="/notes/tapisserie-de-bayeux/">Revenir à la Note</a>
+      </nav>
+    </div>
+  </article>
+</MainLayout>
