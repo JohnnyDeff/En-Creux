@@ -1,4 +1,10 @@
 ---
+episodeNumber: "002"
+themes:
+  - histoire-patrimoine
+  - sciences-techniques
+mechanisms:
+  - revelation-technique
 title: "Lire sans ouvrir"
 subtitle: "Les papyrus d'Herculanum"
 publishDate: 2026-09-18

@@ -1,0 +1,10 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Discovery from '../../components/Discovery.astro';
+import { getPublications } from '../../data/publications';
+const publications = await getPublications();
+---
+<MainLayout title="Thèmes" description="Des œuvres, des objets et des pratiques à explorer par leurs territoires culturels.">
+<section class="listing-page"><div class="page-intro"><p class="eyebrow">Explorer</p><h1>Thèmes</h1><p class="taxonomy-intro">Des œuvres, des objets et des pratiques à explorer par leurs territoires culturels.</p></div>
+<Discovery publications={publications} kind="themes" /></section>
+</MainLayout>

@@ -1,28 +1,12 @@
 ---
-import { getCollection } from 'astro:content';
 import MainLayout from '../../layouts/MainLayout.astro';
-
-const dossiers = (await getCollection('dossiers')).sort(
-  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
-);
+import PublicationList from '../../components/PublicationList.astro';
+import { getPublications } from '../../data/publications';
+const publications = (await getPublications()).filter(p => p.collection === 'dossiers');
 ---
-<MainLayout title="Dossiers" description="Les enquêtes documentées d'EN CREUX.">
+<MainLayout title="Dossiers">
   <section class="listing-page">
-    <div class="page-intro">
-      <p class="eyebrow">Dossiers</p>
-      <h1>Regarder plus loin. <em>En creux.</em></h1>
-    </div>
-    <div class="note-list">
-      {dossiers.map((dossier) => (
-        <article class="note-row dossier-row">
-          <span class="note-number">Dossier</span>
-          <div>
-            <h2><a href={`/dossiers/${dossier.id}/`}>{dossier.data.title}</a></h2>
-            <p>{dossier.data.cardDescription}</p>
-          </div>
-          <time datetime={dossier.data.publishDate.toISOString()}>{dossier.data.publishDate.toLocaleDateString('fr-FR')}</time>
-        </article>
-      ))}
-    </div>
+    <div class="page-intro"><p class="eyebrow">Dossiers</p><h1>Regarder plus loin. <em>En creux.</em></h1></div>
+    <PublicationList publications={publications} />
   </section>
 </MainLayout>

@@ -1,0 +1,9 @@
+---
+import { themes, mechanisms, type ThemeId, type MechanismId } from '../data/taxonomy';
+interface Props { themes: ThemeId[]; mechanisms: MechanismId[]; }
+const { themes: themeIds, mechanisms: mechanismIds } = Astro.props;
+---
+<dl class="taxonomy-links">
+  <div><dt>Thèmes</dt><dd>{themeIds.map(id => <a class="theme-link" style={'--theme-color: ' + themes[id].color} href={'/themes/' + id + '/'}>{themes[id].title}</a>)}</dd></div>
+  <div><dt>{mechanismIds.length > 1 ? 'Mécanismes' : 'Mécanisme'}</dt><dd>{mechanismIds.map(id => <a href={'/mecanismes/' + id + '/'}>{mechanisms[id].title}</a>)}</dd></div>
+</dl>

@@ -1,0 +1,16 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import PublicationList from '../../components/PublicationList.astro';
+import { getPublications } from '../../data/publications';
+import { themes } from '../../data/taxonomy';
+export async function getStaticPaths() {
+  const all = await getPublications();
+  return Object.entries(themes).map(([id, entry]) => ({ params: { slug: id }, props: { entry, publications: all.filter(p => (p.data.themes as string[]).includes(id)) } })).filter(path => path.props.publications.length > 0);
+}
+const { entry, publications } = Astro.props;
+---
+<MainLayout title={entry.title} description={'description' in entry ? entry.description : 'Les publications EN CREUX : ' + entry.title}>
+<section class="listing-page"><div class="page-intro"><p class="eyebrow"><a href="/themes/">Thèmes ↗</a></p><h1>{entry.title}</h1>
+{'description' in entry && <p class="taxonomy-intro">{entry.description}</p>}
+</div><PublicationList publications={publications} /></section>
+</MainLayout>

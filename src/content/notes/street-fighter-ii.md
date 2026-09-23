@@ -1,9 +1,13 @@
 ---
+themes:
+  - jeu-video
+mechanisms:
+  - effets-imprevus
 title: "Street Fighter II — La commande qui pardonnait"
 episodeNumber: "003"
 category: "Culture"
 mechanism: "Signification involontaire"
-publishDate: 2026-09-20
+publishDate: 2026-09-23
 description: "En voulant faciliter les coups spéciaux, les créateurs de Street Fighter II ont ouvert une nouvelle manière de maîtriser le jeu."
 ---
 

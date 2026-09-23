@@ -7,9 +7,13 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "publish": "node scripts/publish.mjs",
+    "test:publication": "node --test tests/publication.test.mjs",
+    "test:publication:build": "node tests/publication-build.mjs"
   },
   "dependencies": {
-    "astro": "^7.3.2"
+    "astro": "^7.3.2",
+    "js-yaml": "^4.3.0"
   }
 }

@@ -1,5 +1,7 @@
 ---
 import { getCollection, getEntry, render } from 'astro:content';
+import TaxonomyLinks from '../../components/TaxonomyLinks.astro';
+import PublicationDate from '../../components/PublicationDate.astro';
 import MainLayout from '../../layouts/MainLayout.astro';
 
 export async function getStaticPaths() {
@@ -19,17 +21,18 @@ const Verification = verification ? (await render(verification)).Content : null;
 >
   <article class="article-page dossier-page">
     <header class="article-header">
-      <p class="eyebrow">Dossier</p>
+      <div class="article-meta"><span>{dossier.data.episodeNumber}</span><span>Dossier</span></div>
       <h1>{dossier.data.title}</h1>
-      <p class="dossier-lead">Deux mille ans après l’éruption du Vésuve, les rouleaux carbonisés d’Herculanum commencent à rendre leurs textes. Non pas parce qu’on a trouvé le moyen de les ouvrir, mais parce qu’on apprend à les lire fermés.</p>
-      <time datetime={dossier.data.publishDate.toISOString()}>{dossier.data.publishDate.toLocaleDateString('fr-FR')}</time>
+      <p class="dossier-lead">{dossier.id === 'lire-sans-ouvrir' ? 'Deux mille ans après l’éruption du Vésuve, les rouleaux carbonisés d’Herculanum commencent à rendre leurs textes. Non pas parce qu’on a trouvé le moyen de les ouvrir, mais parce qu’on apprend à les lire fermés.' : dossier.data.description}</p>
+      <PublicationDate publishDate={dossier.data.publishDate} updatedDate={dossier.data.updatedDate} />
+      <TaxonomyLinks themes={dossier.data.themes} mechanisms={dossier.data.mechanisms} />
     </header>
     <div class="article-content dossier-content"><Content /></div>
     {Verification && (
       <aside class="dossier-verification" aria-labelledby="verification-title">
         <p class="eyebrow">Méthode & sources</p>
         <h2 id="verification-title">Comment nous avons vérifié ce dossier</h2>
-        <p class="verification-lead">Les technologies utilisées pour lire les papyrus d’Herculanum produisent autant de résultats scientifiques que de récits spectaculaires. Nous avons donc distingué les données établies, les annonces du Vesuvius Challenge, leur corroboration indépendante et les hypothèses qui restent ouvertes.</p>
+        {dossier.id === 'lire-sans-ouvrir' && <p class="verification-lead">Les technologies utilisées pour lire les papyrus d’Herculanum produisent autant de résultats scientifiques que de récits spectaculaires. Nous avons donc distingué les données établies, les annonces du Vesuvius Challenge, leur corroboration indépendante et les hypothèses qui restent ouvertes.</p>}
         <div class="verification-content"><Verification /></div>
       </aside>
     )}

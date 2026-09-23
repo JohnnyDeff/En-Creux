@@ -1,0 +1,10 @@
+---
+import { formatDate } from '../data/publication-dates.mjs';
+interface Props { publishDate: string; updatedDate?: string; }
+const { publishDate, updatedDate } = Astro.props;
+---
+<time datetime={publishDate}>{formatDate(publishDate)}</time>
+{updatedDate && <span class="updated-date">Mis à jour le <time datetime={updatedDate}>{formatDate(updatedDate)}</time></span>}
+<style>
+  .updated-date { display: block; color: var(--muted); font-size: .75rem; }
+</style>

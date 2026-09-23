@@ -1,4 +1,8 @@
 ---
+themes:
+  - histoire-patrimoine
+mechanisms:
+  - appropriation-reecriture
 title: "La tapisserie de Bayeux, ou l'art de faire dire trois choses différentes à la même broderie"
 episodeNumber: "001"
 category: "Culture"

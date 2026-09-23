@@ -1,0 +1,15 @@
+---
+import { themes, mechanisms } from '../data/taxonomy';
+import type { Publication } from '../data/publications';
+interface Props { publications: Publication[]; kind: 'themes' | 'mechanisms'; }
+const { publications, kind } = Astro.props;
+const registry = kind === 'themes' ? themes : mechanisms;
+const base = kind === 'themes' ? 'themes' : 'mecanismes';
+const entries = Object.entries(registry).map(([id, entry]) => ({ id, ...entry, count: publications.filter(p => (p.data[kind] as string[]).includes(id)).length })).filter(e => e.count > 0);
+---
+<ul class:list={['discovery-list', { 'discovery-mechanisms': kind === 'mechanisms' }]}>
+  {entries.map(entry => <li><a href={'/' + base + '/' + entry.id + '/'}>
+    <span>{entry.title}</span><small>{entry.count} {entry.count > 1 ? 'publications' : 'publication'} <span aria-hidden="true">↗</span></small>
+    {'description' in entry && <p>{entry.description}</p>}
+  </a></li>)}
+</ul>

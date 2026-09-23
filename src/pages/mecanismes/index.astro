@@ -1,0 +1,10 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Discovery from '../../components/Discovery.astro';
+import { getPublications } from '../../data/publications';
+const publications = await getPublications();
+---
+<MainLayout title="Mécanismes" description="Des sujets différents, des mécanismes qui se répondent.">
+<section class="listing-page"><div class="page-intro"><p class="eyebrow">Explorer</p><h1>Mécanismes</h1><p class="taxonomy-intro">Des sujets différents, des mécanismes qui se répondent.</p></div>
+<Discovery publications={publications} kind="mechanisms" /></section>
+</MainLayout>

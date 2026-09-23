@@ -2,9 +2,12 @@ import { promises as fs } from 'node:fs';
 import { extname, relative, resolve, sep } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import type { Loader } from 'astro/loaders';
+import { readFrontmatter } from '../data/frontmatter.mjs';
+import { isPublished } from '../data/publication-state.mjs';
 
 interface MarkdownDirectoryLoaderOptions {
   base: string;
+  publicationCollection?: 'notes' | 'dossiers';
 }
 
 async function findMarkdownFiles(directory: string): Promise<string[]> {
@@ -65,7 +68,7 @@ function createId(relativePath: string, frontmatter: Record<string, unknown>): s
   return segments.join('/');
 }
 
-export function markdownDirectoryLoader({ base }: MarkdownDirectoryLoaderOptions): Loader {
+export function markdownDirectoryLoader({ base, publicationCollection }: MarkdownDirectoryLoaderOptions): Loader {
   return {
     name: 'markdown-directory-loader',
     async load({ config, generateDigest, parseData, renderMarkdown, store }) {
@@ -77,11 +80,14 @@ export function markdownDirectoryLoader({ base }: MarkdownDirectoryLoaderOptions
 
       for (const filePath of files) {
         const source = await fs.readFile(filePath, 'utf-8');
-        const rendered = await renderMarkdown(source, { fileURL: pathToFileURL(filePath) });
-        const frontmatter = rendered.metadata?.frontmatter ?? {};
+        // Parse dates as strings and exclude private content before rendering/assets.
+        const frontmatter = readFrontmatter(source).data;
         const relativePath = relative(directory, filePath);
         const id = createId(relativePath, frontmatter);
+        const sourceId = relativePath.slice(0, -extname(relativePath).length).split(sep).join('/');
+        if (publicationCollection && !isPublished(publicationCollection, sourceId, frontmatter)) continue;
         const data = await parseData({ id, data: frontmatter, filePath });
+        const rendered = await renderMarkdown(source, { fileURL: pathToFileURL(filePath) });
 
         store.set({
           id,
