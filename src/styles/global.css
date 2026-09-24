@@ -186,9 +186,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .publication-marker time { font-size: .75rem; color: var(--muted); }
 .publication-body h2 { font-size: clamp(1.8rem, 3vw, 3rem); line-height: 1.08; }
 .publication-description { max-width: 680px; margin: 1.25rem 0; color: var(--muted); }
-.publication-feature { grid-template-columns: minmax(180px, 1fr) minmax(0, 2fr); padding: 4rem 0; }
-.publication-feature h2 { font-size: clamp(2.3rem, 4.8vw, 4.5rem); }
-.publication-feature .publication-number { font-size: clamp(3rem, 7vw, 6rem); color: var(--accent); }
+.publication-feature h2 { font-size: clamp(1.9rem, 3.3vw, 3.3rem); }
+.publication-feature .publication-number { font-size: clamp(2.25rem, 3.75vw, 3rem); color: var(--accent); }
 .taxonomy-links { margin: 1.5rem 0 0; font-size: .78rem; }
 .taxonomy-links > div { display: flex; align-items: baseline; gap: .75rem; margin-top: .55rem; }
 .taxonomy-links dt { color: var(--muted); flex: 0 0 5.7rem; }
@@ -207,7 +206,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .taxonomy-intro { margin: 2rem 0 0; max-width: 700px; color: var(--muted); }
 .listing-page h1 { overflow-wrap: anywhere; }
 @media (max-width: 760px) {
-  .publication-row, .publication-feature { grid-template-columns: 1fr; gap: 1.5rem; padding: 2.5rem 0; }
+  .publication-row { grid-template-columns: 1fr; gap: 1.5rem; padding: 2.5rem 0; }
   .publication-marker { flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: .75rem; }
   .publication-marker .eyebrow { flex-basis: 100%; margin-bottom: .5rem; }
   .publication-marker time { margin-left: auto; }
