@@ -17,13 +17,17 @@ description: "Description de la publication."
 themes:
   - jeu-video
 mechanisms:
-  - effets-imprevus
+  - signification-involontaire
 ---
 
 Texte de la Note et documentation.
 ```
 
-Pour un Dossier, ajouter `subtitle` et `cardDescription` à ces mêmes métadonnées. Choisir son véritable numéro éditorial et les identifiants adaptés dans `src/data/taxonomy.mjs`. Les anciens champs `category` et `mechanism` restent compatibles, mais ne sont plus requis sur une nouvelle Note.
+Pour un Dossier, ajouter `subtitle` et `cardDescription` à ces mêmes métadonnées. Choisir son véritable numéro éditorial et les identifiants adaptés dans `src/data/taxonomy.mjs`. Le champ historique `category` reste compatible, mais n’est plus requis sur une nouvelle Note.
+
+`mechanisms` contient une ou plusieurs des neuf familles fondatrices du cahier V4. `mechanismAngle` est une formulation facultative propre à la publication, par exemple `mechanismAngle: "Effets imprévus"` pour Street Fighter II. Cet angle reste une métadonnée éditoriale : il ne remplace pas la famille dans les liens et ne génère aucune page de taxonomie. Les anciennes valeurs `appropriation-reecriture`, `revelation-technique` et `effets-imprevus` ne sont plus des identifiants valides.
+
+Les familles sans publication restent absentes des index publics et de la génération des routes. Elles deviennent visibles automatiquement au premier contenu publié qui les référence. `decontextualisation` est disponible pour la future Note Amen Break ; aucun contenu ni angle n’est précréé.
 
 Ne pas ajouter `publishDate`, même vide : la commande refuse tout champ déjà présent. `status: draft` rend le contenu privé, même s’il contient accidentellement une date. Un nouveau fichier sans `status` est également privé. Une valeur de statut inconnue provoque une erreur de compilation.
 

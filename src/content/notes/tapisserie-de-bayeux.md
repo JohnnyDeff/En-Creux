@@ -2,11 +2,11 @@
 themes:
   - histoire-patrimoine
 mechanisms:
-  - appropriation-reecriture
+  - histoire-sedimentation
+mechanismAngle: "Appropriation & réécriture"
 title: "La tapisserie de Bayeux, ou l'art de faire dire trois choses différentes à la même broderie"
 episodeNumber: "001"
 category: "Culture"
-mechanism: "Propagande, appropriation et réécriture"
 publishDate: 2026-09-10
 description: "Une broderie vieille de mille ans, trois pouvoirs qui cherchent à lui faire raconter leur propre histoire."
 ---

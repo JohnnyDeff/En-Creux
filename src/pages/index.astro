@@ -1,7 +1,6 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 import PublicationList from '../components/PublicationList.astro';
-import Discovery from '../components/Discovery.astro';
 import { getPublications } from '../data/publications';
 const publications = await getPublications();
 ---
@@ -14,8 +13,4 @@ const publications = await getPublications();
   <section aria-label="Publications, de la plus récente à la plus ancienne">
     <PublicationList publications={publications} featureFirst />
   </section>
-  <div class="discovery-grid">
-    <section><h2><a href="/themes/">Explorer par thème</a></h2><Discovery publications={publications} kind="themes" /></section>
-    <section><h2><a href="/mecanismes/">Explorer par mécanisme</a></h2><Discovery publications={publications} kind="mechanisms" /></section>
-  </div>
 </MainLayout>

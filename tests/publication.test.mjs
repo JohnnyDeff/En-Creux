@@ -7,6 +7,20 @@ import { publish } from '../scripts/publish.mjs';
 import { parisTimestamp, formatDate, isPublicationDate } from '../src/data/publication-dates.mjs';
 import { isPublished } from '../src/data/publication-state.mjs';
 import { readFrontmatter } from '../src/data/frontmatter.mjs';
+import { mechanisms } from '../src/data/taxonomy.mjs';
+import { noteSchema, dossierSchema } from '../src/data/publication-schema.mjs';
+
+test('Neuf familles canoniques, angles facultatifs et associations multiples', () => {
+  assert.deepEqual(Object.keys(mechanisms), ['intention', 'forme', 'signification-involontaire', 'reception', 'histoire-sedimentation', 'decontextualisation', 'trace-indice', 'convention-attente', 'traduction-passage']);
+  const data = { title: 'Essai', episodeNumber: '999', description: 'Essai', themes: ['jeu-video'], mechanisms: ['signification-involontaire', 'forme'], publishDate: '2026-09-24T10:00:00+02:00' };
+  for (const schema of [noteSchema, dossierSchema]) {
+    const input = { ...data, subtitle: 'Essai', cardDescription: 'Essai' };
+    assert.equal(schema.parse(input).mechanismAngle, undefined);
+    assert.equal(schema.parse({ ...input, mechanismAngle: 'Angle particulier' }).mechanismAngle, 'Angle particulier');
+    assert.throws(() => schema.parse({ ...input, mechanismAngle: ' ' }));
+    for (const id of ['appropriation-reecriture', 'revelation-technique', 'effets-imprevus']) assert.throws(() => schema.parse({ ...input, mechanisms: [id] }));
+  }
+});
 
 test('Paris : hiver, été, minuit et transitions été/hiver', () => {
   const cases = [
@@ -53,7 +67,7 @@ async function fixture(t, type = 'note', changes = '') {
   const directory = join(root, 'src', 'content', collection);
   await mkdir(directory, { recursive: true });
   const file = join(directory, 'test-publication.md');
-  const source = `---\nstatus: draft # validé plus tard\ntitle: "Essai"\nepisodeNumber: "900"\ndescription: "Essai privé"\nthemes: [jeu-video]\nmechanisms: [effets-imprevus]\n${type === 'dossier' ? 'subtitle: "Sous-titre"\ncardDescription: "Description"\n' : ''}${changes}---\n\nTexte **inchangé**.\n`;
+  const source = `---\nstatus: draft # validé plus tard\ntitle: "Essai"\nepisodeNumber: "900"\ndescription: "Essai privé"\nthemes: [jeu-video]\nmechanisms: [signification-involontaire]\n${type === 'dossier' ? 'subtitle: "Sous-titre"\ncardDescription: "Description"\n' : ''}${changes}---\n\nTexte **inchangé**.\n`;
   await writeFile(file, source);
   return { root, file, source, directory, args: { type, id: 'test-publication', root, validated: true, now: new Date('2026-09-23T16:42:18Z') } };
 }

@@ -9,6 +9,7 @@ const common = {
   description: z.string().min(1),
   themes: z.array(z.enum(Object.keys(themes))).min(1),
   mechanisms: z.array(z.enum(Object.keys(mechanisms))).min(1),
+  mechanismAngle: z.string().trim().min(1).optional(),
   status: z.enum(['draft', 'published']).optional(),
   publishDate: date,
   updatedDate: date.optional(),
@@ -25,9 +26,8 @@ const validUpdate = data => {
 const updateMessage = { message: 'updatedDate ne peut pas précéder publishDate.', path: ['updatedDate'] };
 export const noteSchema = z.object({
   ...common,
-  // Legacy fields remain supported but are no longer required on new notes.
+  // The legacy category remains supported on existing notes.
   category: z.enum(['Cinéma', 'Musique', 'Manga', 'Idées', 'Société', 'Culture']).optional(),
-  mechanism: z.string().optional(),
 }).refine(validUpdate, updateMessage);
 export const dossierSchema = z.object({
   ...common,

@@ -9,6 +9,7 @@ import { spawnSync } from 'node:child_process';
 import { readFrontmatter } from '../src/data/frontmatter.mjs';
 import { historicalPublications } from '../src/data/publication-state.mjs';
 import { formatDate } from '../src/data/publication-dates.mjs';
+import { mechanisms } from '../src/data/taxonomy.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const out = await mkdtemp(join(tmpdir(), 'encreux-build-test-'));
@@ -32,13 +33,29 @@ try {
     const id = token + '-' + suffix;
     const file = join(root, 'src/content', collection, id + '.md');
     const extra = collection === 'dossiers' ? 'subtitle: Test\ncardDescription: Test\n' : '';
-    const source = `---\n${status}title: ${id}\nepisodeNumber: "999"\ndescription: ${id}\nthemes: [jeu-video]\nmechanisms: [effets-imprevus]\n${extra}---\n\n${id}\n`;
+    const families = suffix === 'note' ? 'signification-involontaire, decontextualisation' : 'signification-involontaire';
+    const source = `---\n${status}title: ${id}\nepisodeNumber: "999"\ndescription: ${id}\nthemes: [jeu-video]\nmechanisms: [${families}]\nmechanismAngle: "Angle temporaire de test"\n${extra}---\n\n${id}\n`;
     await writeFile(file, source, { flag: 'wx' });
     created.push(file);
   }
   let pages = await build();
   assert.equal(pages.size, 19);
   assert.ok([...pages.values()].every(html => !html.includes(token)), 'Draft leaked into public HTML');
+  const active = ['signification-involontaire', 'histoire-sedimentation', 'trace-indice'];
+  for (const id of Object.keys(mechanisms)) {
+    assert.equal(pages.has(`mecanismes/${id}/index.html`), active.includes(id));
+    assert.equal(pages.get('mecanismes/index.html').includes(`/mecanismes/${id}/`), active.includes(id));
+  }
+  const redirects = (await readFile(join(out, '_redirects'), 'utf8')).split(/\r?\n/).filter(line => line && !line.startsWith('#'));
+  assert.equal(redirects.length, 6);
+  const expectedRedirects = { 'appropriation-reecriture': 'histoire-sedimentation', 'revelation-technique': 'trace-indice', 'effets-imprevus': 'signification-involontaire' };
+  for (const [oldId, newId] of Object.entries(expectedRedirects)) {
+    assert.ok(!pages.has(`mecanismes/${oldId}/index.html`));
+    for (const slash of ['', '/']) assert.ok(redirects.includes(`/mecanismes/${oldId}${slash} /mecanismes/${newId}/ 301`));
+    assert.ok([...pages.values()].every(html => !html.includes(`/mecanismes/${oldId}/`)));
+    assert.ok(pages.has(`mecanismes/${newId}/index.html`));
+  }
+  assert.ok(!pages.get('index.html').includes('discovery-grid'));
   console.log('OK : brouillons explicites et implicites absents des 19 pages et routes.');
   const stamps = new Map();
   for (const type of ['note', 'dossier']) {
@@ -66,7 +83,10 @@ try {
   stamps.set(noteFile, corrected);
   for (let pass = 0; pass < 2; pass++) {
     pages = await build();
-    assert.equal(pages.size, 21);
+    assert.equal(pages.size, 22);
+    assert.ok(pages.get('mecanismes/index.html').includes('/mecanismes/decontextualisation/'));
+    assert.ok(pages.get('mecanismes/decontextualisation/index.html').includes(token + '-note'));
+    assert.ok(!pages.get('mecanismes/decontextualisation/index.html').includes(token + '-dossier'));
     for (const [file, source] of stamps) {
       assert.equal(await readFile(file, 'utf8'), source, 'Build changed the persisted timestamp');
       const data = readFrontmatter(source).data;
@@ -77,7 +97,7 @@ try {
       assert.ok(html.includes(formatDate(data.publishDate)));
       if (type === 'notes') assert.ok(html.includes('Mis à jour le'));
       else assert.ok(!html.includes('Deux mille ans après l’éruption'));
-      for (const route of ['index.html', type + '/index.html', 'themes/jeu-video/index.html', 'mecanismes/effets-imprevus/index.html']) assert.ok(pages.get(route).includes(id));
+      for (const route of ['index.html', type + '/index.html', 'themes/jeu-video/index.html', 'mecanismes/signification-involontaire/index.html']) assert.ok(pages.get(route).includes(id));
     }
     assert.ok([...pages.values()].every(html => !html.includes(token + '-implicit')));
   }

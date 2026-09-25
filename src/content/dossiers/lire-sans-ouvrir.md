@@ -4,7 +4,8 @@ themes:
   - histoire-patrimoine
   - sciences-techniques
 mechanisms:
-  - revelation-technique
+  - trace-indice
+mechanismAngle: "Révélation technique"
 title: "Lire sans ouvrir"
 subtitle: "Les papyrus d'Herculanum"
 publishDate: 2026-09-18
