@@ -15,8 +15,8 @@ const { publications, featureFirst = false } = Astro.props;
         <PublicationDate publishDate={entry.data.publishDate} updatedDate={entry.data.updatedDate} />
       </div>
       <div class="publication-body">
-        <h2><a href={publicationUrl(entry)}>{entry.data.title}</a></h2>
-        <p class="publication-description">{'cardDescription' in entry.data ? entry.data.cardDescription : entry.data.description}</p>
+        <h2><a href={publicationUrl(entry)}>{entry.data.title}{entry.collection === 'notes' && entry.data.subtitle && ` — ${entry.data.subtitle}`}</a></h2>
+        <p class="publication-description">{('cardDescription' in entry.data && entry.data.cardDescription) || entry.data.description}</p>
         <TaxonomyLinks themes={entry.data.themes} mechanisms={entry.data.mechanisms} />
         {featureFirst && index === 0 && <a class="text-link" href={publicationUrl(entry)}>Lire {entry.collection === 'notes' ? 'la note' : 'le dossier'} <span aria-hidden="true">↗</span></a>}
       </div>

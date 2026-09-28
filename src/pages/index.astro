@@ -2,7 +2,7 @@
 import MainLayout from '../layouts/MainLayout.astro';
 import PublicationList from '../components/PublicationList.astro';
 import { getPublications } from '../data/publications';
-const publications = await getPublications();
+const publications = (await getPublications()).slice(0, 3);
 ---
 <MainLayout title="Accueil">
   <section class="hero">
@@ -10,7 +10,7 @@ const publications = await getPublications();
     <h1>Ce que les œuvres racontent <em>sans le dire.</em></h1>
     <p class="hero-intro">Œuvres, objets, pratiques culturelles : nous explorons leurs mécanismes, les contextes qui les façonnent et les significations qui leur échappent parfois.</p>
   </section>
-  <section aria-label="Publications, de la plus récente à la plus ancienne">
+  <section aria-label="Les trois publications les plus récentes">
     <PublicationList publications={publications} featureFirst />
   </section>
 </MainLayout>

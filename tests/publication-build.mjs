@@ -29,6 +29,7 @@ async function build() {
   return new Map(await Promise.all(files.map(async p => [p.replaceAll('\\', '/'), await readFile(join(out, p), 'utf8')])));
 }
 try {
+  const baselinePages = await build();
   for (const [collection, suffix, status] of [['notes', 'note', 'status: draft\n'], ['dossiers', 'dossier', 'status: draft\n'], ['notes', 'implicit', ''], ['notes', 'alias', 'slug: street-fighter-ii\npublishDate: 2026-09-23\n']]) {
     const id = token + '-' + suffix;
     const file = join(root, 'src/content', collection, id + '.md');
@@ -39,9 +40,9 @@ try {
     created.push(file);
   }
   let pages = await build();
-  assert.equal(pages.size, 19);
+  assert.equal(pages.size, baselinePages.size);
   assert.ok([...pages.values()].every(html => !html.includes(token)), 'Draft leaked into public HTML');
-  const active = ['signification-involontaire', 'histoire-sedimentation', 'trace-indice'];
+  const active = Object.keys(mechanisms).filter(id => baselinePages.has(`mecanismes/${id}/index.html`));
   for (const id of Object.keys(mechanisms)) {
     assert.equal(pages.has(`mecanismes/${id}/index.html`), active.includes(id));
     assert.equal(pages.get('mecanismes/index.html').includes(`/mecanismes/${id}/`), active.includes(id));
@@ -56,7 +57,7 @@ try {
     assert.ok(pages.has(`mecanismes/${newId}/index.html`));
   }
   assert.ok(!pages.get('index.html').includes('discovery-grid'));
-  console.log('OK : brouillons explicites et implicites absents des 19 pages et routes.');
+  console.log(`OK : brouillons explicites et implicites absents des ${pages.size} pages et routes.`);
   const stamps = new Map();
   for (const type of ['note', 'dossier']) {
     const id = token + '-' + type;
@@ -83,7 +84,7 @@ try {
   stamps.set(noteFile, corrected);
   for (let pass = 0; pass < 2; pass++) {
     pages = await build();
-    assert.equal(pages.size, 22);
+    assert.equal(pages.size, baselinePages.size + 3);
     assert.ok(pages.get('mecanismes/index.html').includes('/mecanismes/decontextualisation/'));
     assert.ok(pages.get('mecanismes/decontextualisation/index.html').includes(token + '-note'));
     assert.ok(!pages.get('mecanismes/decontextualisation/index.html').includes(token + '-dossier'));

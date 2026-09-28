@@ -26,6 +26,11 @@ const validUpdate = data => {
 const updateMessage = { message: 'updatedDate ne peut pas précéder publishDate.', path: ['updatedDate'] };
 export const noteSchema = z.object({
   ...common,
+  subtitle: z.string().min(1).optional(),
+  cardDescription: z.string().min(1).optional(),
+  work: z.string().min(1).optional(),
+  director: z.string().min(1).optional(),
+  year: z.number().int().optional(),
   // The legacy category remains supported on existing notes.
   category: z.enum(['Cinéma', 'Musique', 'Manga', 'Idées', 'Société', 'Culture']).optional(),
 }).refine(validUpdate, updateMessage);

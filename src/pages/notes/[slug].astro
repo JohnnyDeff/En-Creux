@@ -18,11 +18,12 @@ const Verification = verification ? (await render(verification)).Content : null;
 // Illustration propre à Bayeux : ajouter ici une correspondance explicite pour toute autre note illustrée.
 const articleImage = note.id === 'tapisserie-de-bayeux' ? bayeuxImage : null;
 ---
-<MainLayout title={note.data.title} description={note.data.description}>
+<MainLayout title={[note.data.title,note.data.subtitle].filter(Boolean).join(' — ')} description={note.data.description}>
   <article class="article-page">
     <header class="article-header">
       <div class="article-meta"><span>{note.data.episodeNumber}</span><span>Note</span></div>
       <h1>{note.data.title}</h1>
+      {note.data.subtitle && <p class="article-description">{note.data.subtitle}</p>}
       <p class="article-description">{note.data.description}</p>
       <PublicationDate publishDate={note.data.publishDate} updatedDate={note.data.updatedDate} />
       <button class="share-button" type="button" id="copy-link">
