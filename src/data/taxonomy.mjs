@@ -1,4 +1,5 @@
 export const themes = {
+  'bande-dessinee': { title: 'Bande dessinée', color: '#665477' },
   'cinema': { title: 'Cinéma', color: '#80513B' },
   'jeu-video': { title: 'Jeu vidéo', color: '#5C665D' },
   'histoire-patrimoine': { title: 'Histoire & patrimoine', color: '#806A55' },
