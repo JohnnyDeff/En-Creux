@@ -61,5 +61,3 @@ Les sources consultées n’établissent pas la motivation précise du choix ent
 Chronotomo a servi à localiser les documents originaux ; il n’est pas retenu comme autorité documentaire finale. Aucune image des œuvres n’est reproduite dans le dossier.
 
 Références externes consultées le 11 octobre 2026.
-
-*Jonathan Slila — EN CREUX*

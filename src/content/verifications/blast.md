@@ -63,6 +63,3 @@ Le rôle de Roland dans la préparation d’une requalification morale, la redis
 Elles reposent sur les rapprochements explicités dans le dossier. Elles ne sont ni une équivalence entre blast et meurtre, ni une explication clinique, ni des intentions attribuées à l’auteur. Aucune source consultée pour cette enquête ne fournit cette définition de la pierre ; cela ne prouve pas que Larcenet n’en ait jamais parlé.
 
 Références externes consultées le 11 octobre 2026.
-
-*Jonathan Slila — EN CREUX*
-

@@ -38,3 +38,7 @@ Réutiliser les composants de liste, de date et de taxonomie sur l’accueil, le
 Avant une modification systémique, capturer le rendu de référence et identifier le défaut à corriger. Comparer ensuite les mêmes publications ensemble, avant et après, à 1280, 768, 390 et 320 px. Contrôler les alignements avec des titres courts et longs, l’échelle des numéros et titres, les espacements, les métadonnées, la lisibilité des liens et l’absence de débordement horizontal.
 
 Vérifier aussi les listes réutilisant les composants concernés. Une validation ne repose pas sur une carte isolée : conserver des captures montrant plusieurs publications successives. Exécuter le build avant livraison et soumettre le diff et les captures à validation avant commit ou push.
+
+## Présence du nom de l’auteur
+
+L’identité EN CREUX porte les publications. Le nom de l’auteur apparaît dans les pages Doctrine et Méthode, ainsi que dans les mentions légales. Ne pas ajouter de signature nominative aux Notes, aux Dossiers ou à leurs blocs Méthode & sources ; ne pas la remplacer par une signature systématique « Par EN CREUX ». Le footer utilise « © 2026 EN CREUX. Tous droits réservés. ».
