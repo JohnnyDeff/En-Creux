@@ -38,10 +38,10 @@ test('Paris : hiver, été, minuit et transitions été/hiver', () => {
   }
 });
 
-test('Affichage sans heure fictive et validation stricte des dates', () => {
+test('Affichage uniforme sans heure, jour de Paris et validation stricte des dates', () => {
   assert.equal(formatDate('2026-09-23'), '23/09/2026');
-  assert.equal(formatDate('2026-09-23T18:42:18+02:00'), '23 septembre 2026 · 18 h 42');
-  assert.equal(formatDate('2026-09-23T23:42:00-04:00'), '24 septembre 2026 · 05 h 42');
+  assert.equal(formatDate('2026-09-23T18:42:18+02:00'), '23/09/2026');
+  assert.equal(formatDate('2026-09-23T23:42:00-04:00'), '24/09/2026');
   for (const value of ['2026-02-30', '2026-09-23T18:42:00', '2026-09-23T24:00:00+02:00', '2026-09-23T18:42:00+14:30', new Date()]) assert.equal(isPublicationDate(value), false);
   assert.equal(isPublicationDate('2028-02-29'), true);
 });

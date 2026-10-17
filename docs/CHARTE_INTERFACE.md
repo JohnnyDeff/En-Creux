@@ -42,3 +42,7 @@ Vérifier aussi les listes réutilisant les composants concernés. Une validatio
 ## Présence du nom de l’auteur
 
 L’identité EN CREUX porte les publications. Le nom de l’auteur apparaît dans les pages Doctrine et Méthode, ainsi que dans les mentions légales. Ne pas ajouter de signature nominative aux Notes, aux Dossiers ou à leurs blocs Méthode & sources ; ne pas la remplacer par une signature systématique « Par EN CREUX ». Le footer utilise « © 2026 EN CREUX. Tous droits réservés. ».
+
+## Affichage des dates
+
+Toutes les publications affichent uniquement la date au format `JJ/MM/AAAA`, sur l’accueil, les listes et les pages individuelles, y compris pour les dates de mise à jour. Le jour est calculé en Europe/Paris lorsque la donnée comporte un horodatage. Conserver les horodatages complets dans les données et les attributs `datetime` ; ils servent au classement chronologique et à la traçabilité.

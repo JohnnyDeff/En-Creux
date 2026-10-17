@@ -24,7 +24,5 @@ export function formatDate(value) {
   if (!isPublicationDate(value)) throw new Error('Date éditoriale invalide : ' + value);
   if (value.length === 10) return value.split('-').reverse().join('/');
   const date = new Date(value);
-  const day = new Intl.DateTimeFormat('fr-FR', { timeZone: PUBLICATION_TIME_ZONE, day: 'numeric', month: 'long', year: 'numeric' }).format(date);
-  const time = new Intl.DateTimeFormat('fr-FR', { timeZone: PUBLICATION_TIME_ZONE, hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).format(date);
-  return `${day} · ${time.replace(':', ' h ')}`;
+  return new Intl.DateTimeFormat('fr-FR', { timeZone: PUBLICATION_TIME_ZONE, day: '2-digit', month: '2-digit', year: 'numeric' }).format(date);
 }

@@ -73,7 +73,7 @@ Les trois articles antérieurs sont reconnus explicitement sans changement de le
 | Dossier 002 — Lire sans ouvrir | `2026-09-18` |
 | Note 003 — Street Fighter II | `2026-09-23` |
 
-Leur affichage reste `10/09/2026`, `18/09/2026` et `23/09/2026`, sans heure, y compris dans l’attribut HTML `datetime`. Les nouveaux horodatages sont affichés en heure de Paris : `23 septembre 2026 · 18 h 42`. Listes et pages individuelles partagent le même composant et le même formateur.
+Leur affichage reste `10/09/2026`, `18/09/2026` et `23/09/2026`, sans heure, y compris dans l’attribut HTML `datetime`. Tous les horodatages complets sont affichés au même format `JJ/MM/AAAA`, selon le jour en Europe/Paris, sans heure visible. L’horodatage complet reste conservé dans les données et l’attribut HTML `datetime`, notamment pour le classement chronologique. Listes et pages individuelles partagent le même composant et le même formateur.
 
 ## Corrections éditoriales
 
