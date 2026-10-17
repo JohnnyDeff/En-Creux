@@ -6,7 +6,7 @@ themes:
 mechanisms:
   - trace-indice
 mechanismAngle: "Révélation technique"
-title: "Lire sans ouvrir"
+title: "Les papyrus d’Herculanum — Lire sans ouvrir"
 subtitle: "Les papyrus d'Herculanum"
 publishDate: 2026-09-18
 description: "Carbonisés par le Vésuve il y a près de deux mille ans, les papyrus d’Herculanum commencent à être lus sans être ouverts. Enquête sur le Vesuvius Challenge."
