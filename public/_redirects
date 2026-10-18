@@ -5,3 +5,7 @@
 /mecanismes/revelation-technique /mecanismes/trace-indice/ 301
 /mecanismes/effets-imprevus/ /mecanismes/signification-involontaire/ 301
 /mecanismes/effets-imprevus /mecanismes/signification-involontaire/ 301
+
+# Ancien appareil Bayeux integre a la Note.
+/notes/tapisserie-de-bayeux/appareil-documentaire/ /notes/tapisserie-de-bayeux/#verification-title 301
+/notes/tapisserie-de-bayeux/appareil-documentaire /notes/tapisserie-de-bayeux/#verification-title 301

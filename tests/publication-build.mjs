@@ -48,7 +48,10 @@ try {
     assert.equal(pages.get('mecanismes/index.html').includes(`/mecanismes/${id}/`), active.includes(id));
   }
   const redirects = (await readFile(join(out, '_redirects'), 'utf8')).split(/\r?\n/).filter(line => line && !line.startsWith('#'));
-  assert.equal(redirects.length, 6);
+  assert.equal(redirects.length, 8);
+  for (const slash of ['', '/']) {
+    assert.ok(redirects.includes(`/notes/tapisserie-de-bayeux/appareil-documentaire${slash} /notes/tapisserie-de-bayeux/#verification-title 301`));
+  }
   const expectedRedirects = { 'appropriation-reecriture': 'histoire-sedimentation', 'revelation-technique': 'trace-indice', 'effets-imprevus': 'signification-involontaire' };
   for (const [oldId, newId] of Object.entries(expectedRedirects)) {
     assert.ok(!pages.has(`mecanismes/${oldId}/index.html`));
