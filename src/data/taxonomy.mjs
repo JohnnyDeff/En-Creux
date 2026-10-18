@@ -1,6 +1,7 @@
 export const themes = {
   'bande-dessinee': { title: 'Bande dessinée', color: '#665477' },
   'cinema': { title: 'Cinéma', color: '#80513B' },
+  'musique': { title: 'Musique', color: '#6D626F' },
   'jeu-video': { title: 'Jeu vidéo', color: '#5C665D' },
   'histoire-patrimoine': { title: 'Histoire & patrimoine', color: '#806A55' },
   'sciences-techniques': { title: 'Sciences & techniques', color: '#526A77' },
