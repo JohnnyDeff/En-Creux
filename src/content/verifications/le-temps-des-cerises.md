@@ -2,7 +2,7 @@
 title: "Appareil documentaire — Le Temps des cerises"
 ---
 
-## Texte et dédicace de Clément
+### Texte et dédicace de Clément
 
 **Jean-Baptiste Clément, *Chansons*, édition de 1885.**
 
@@ -12,7 +12,7 @@ Le recueil présente les paroles et la dédicace à Louise, ambulancière de la 
 
 **Statut : document primaire édité après les faits ; identité et sort de Louise non vérifiés indépendamment.** La date de rédaction de la dédicace en 1882, parfois avancée, n'est pas prouvée dans les documents consultés.
 
-## Louise Michel et la mémoire communarde
+### Louise Michel et la mémoire communarde
 
 **Louise Michel, *La Commune*, 1898, pages 287–288 du fac-similé.**
 
@@ -24,7 +24,7 @@ Louise Michel évoque les combats, l'ambulancière et la dédicace. Elle reprodu
 
 **Statut : source primaire de réception mémorielle, publiée plusieurs décennies après 1871.** Aucun élément consulté ne démontre que la chanson était interprétée sur les barricades.
 
-## Réécriture de Jules Jouy
+### Réécriture de Jules Jouy
 
 **Violaine François, « Petits genres et paroles vives ».**
 
@@ -34,7 +34,7 @@ https://una-editions.fr/petits-genres-et-paroles-vives/
 
 **Statut : source secondaire scientifique ; numéro original non consulté.** La réécriture témoigne d'un usage politique de la mélodie, sans établir que tous les auditeurs associaient déjà l'original à la Commune.
 
-## Film de 1937
+### Film de 1937
 
 **Jean-Paul Le Chanois, *Le Temps des cerises* (1937), Ciné-Archives.**
 
@@ -44,7 +44,7 @@ Film commandé par le PCF sur les conditions sociales et les retraites des vieux
 
 **Statut : notice archivistique et découpage du film ; la Note ne prête pas à cette scène une causalité symbolique non documentée.**
 
-## Porco Rosso et les propos de Miyazaki
+### Porco Rosso et les propos de Miyazaki
 
 **Hayao Miyazaki, *Porco Rosso*, Studio Ghibli, 1992.**
 
@@ -54,7 +54,7 @@ Gina interprète la chanson en français. Miyazaki rapproche ce choix de l'éche
 
 **Statut : film primaire ; entretien cité indirectement, numéro original de Positif non consulté.** Éviter de lui attribuer une interprétation plus précise que ses propos rapportés.
 
-## Référence méthodologique
+### Référence méthodologique
 
 « Le Temps des cerises », comment analyser les rapports entre musique et politique ?
 
@@ -62,7 +62,7 @@ https://books.openedition.org/ms/1782
 
 L'étude distingue objet musical, conditions de production et pratiques de réception. Elle indique prudemment qu'il semble que la chanson n'ait pas été chantée durant la Commune.
 
-## Limites retenues
+### Limites retenues
 
 - Des variantes textuelles sont attestées dans les éditions et enregistrements : ne pas affirmer une identité littérale des paroles dans toutes les versions.
 - Les trois enregistrements anciens Pétrus (1900), Soulacroix (1904) et Surgères (1930) ont le même incipit « Quand nous chanterons ». Leurs écarts de style ne prouvent pas de différence politique.
