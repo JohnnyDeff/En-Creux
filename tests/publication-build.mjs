@@ -26,7 +26,24 @@ function run(args, expected = 0) {
 async function build() {
   run(['node_modules/astro/bin/astro.mjs', 'build', '--outDir', out]);
   const files = (await readdir(out, { recursive: true })).filter(p => p.endsWith('.html'));
-  return new Map(await Promise.all(files.map(async p => [p.replaceAll('\\', '/'), await readFile(join(out, p), 'utf8')])));
+  const pages = new Map(await Promise.all(files.map(async p => [p.replaceAll('\\', '/'), await readFile(join(out, p), 'utf8')])));
+  const index = await readFile(join(out, 'sitemap-index.xml'), 'utf8');
+  assert.ok(index.includes('<loc>https://www.encreux.fr/sitemap-0.xml</loc>'));
+  const xml = await readFile(join(out, 'sitemap-0.xml'), 'utf8');
+  const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]);
+  assert.equal(new Set(urls).size, urls.length, 'Duplicate sitemap URL');
+  const canonicals = [...pages.values()].flatMap(html => {
+    if (/<meta\b[^>]*name="(?:robots|googlebot)"[^>]*content="[^"]*noindex/i.test(html)) return [];
+    return [...html.matchAll(/<link\b[^>]*rel="canonical"[^>]*href="([^"]+)"/g)].map(match => match[1]);
+  });
+  assert.deepEqual([...urls].sort(), [...canonicals].sort(), 'Sitemap must match public canonical pages');
+  assert.ok(urls.every(url => new URL(url).origin === 'https://www.encreux.fr'));
+  assert.ok(!urls.some(url => url.includes('/appareil-documentaire')));
+  for (const route of ['/dossiers/blast/', '/dossiers/akira/', '/notes/le-temps-des-cerises/']) {
+    assert.ok(urls.includes('https://www.encreux.fr' + route), 'Missing published URL: ' + route);
+  }
+  assert.equal(await readFile(join(out, 'robots.txt'), 'utf8'), 'User-agent: *\nAllow: /\n\nSitemap: https://www.encreux.fr/sitemap-index.xml\n');
+  return pages;
 }
 try {
   const baselinePages = await build();
